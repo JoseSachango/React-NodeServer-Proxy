@@ -1,4 +1,4 @@
-import React, { Component,useContext } from "react";
+import React, { Component, useState,useEffect,useContext  } from "react";
 import Navbar from "react-bootstrap/Navbar"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
@@ -12,12 +12,9 @@ import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 import DeveloperContext from "../../utils/DeveloperContext"
 import API from "../../utils/API"
+import Accordion from "./AccordianExperiment"
 
-//You most create and axios instance with a base url when using react and axios together
-const axios = require("axios")
-const axiosinstance = axios.create({
-    baseURL: 'http://localhost:3000'
-  });
+
 
 
 
@@ -30,12 +27,11 @@ const UserSelectionExperiment = () => {
     console.log("This is the user informaiton", JSON.stringify(user,null,2))
 
     const handleProducerClick = () =>{
-
-        axiosinstance.post("/api/user/post",{googleId:user.sub,name:user.name,userType:"jjj"}).then(resultPost=>{
+        API.postUserInfo("/api/user/post",{googleId:user.sub,name:user.name,userType:"jjj",profileCompleted:false}).then(resultPost=>{
             console.log("Succefully posted user data. This is what was returned: ",resultPost)
           }).catch(errPost=>{
             console.log("There was an error with the posting of a new user: ",errPost)
-          })
+          }) 
     }   
 
  
@@ -44,45 +40,47 @@ const UserSelectionExperiment = () => {
     return (
         isAuthenticated && (
             
-            <Container className="bg-light" style={{height:"100vh",backgroundColor:"yellow"}}  fluid>
-                <Row style={{height:"5rem",backgroundColor:"blue",top:"50px"}}>
+            <Container  style={{height:"100vh",backgroundColor:"rgba(69, 179, 113, .1)",position:"relative"}}  fluid>
+                <Row style={{height:"5rem",top:"50px"}}>
 
                 </Row>
-                <Row style={{height:"15rem",backgroundColor:"red",top:"50px"}}>
+                <Row style={{height:"15rem",top:"50px"}}>
                   
                   
-                    <Col xl={3} >
+                    <Col xl={2} md={2} >
                        
                     </Col>
-                    <Col xl={4}>
-                        <Card style={{ width: '18rem' }}>
+                    <Col xl={4} md={4}>
+                        <Card style={{ width: '20rem',boxShadow:"12px 12px 2px 1px rgba(0, 0, 255, .2)",zIndex:1}}>
                             <Card.Img variant="top" src="https://imgur.com/YUa0O1z.png" />
                             <Card.Body>
                                 <Card.Title>Roaster</Card.Title>
                                 <Card.Text>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
+                                <Accordion name={"Example"}/>
                                 </Card.Text>
                                 <Button variant="primary">Register As Roaster</Button>
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col  xl={4}>
-                        <Card style={{ width: '18rem' }}>
+                    <Col  xl={4} md={4}>
+                        <Card style={{ width: '20rem',boxShadow:"12px 12px 2px 1px rgba(0, 0, 255, .2)",zIndex:1 }}>
                             <Card.Img variant="top" src="https://imgur.com/YUa0O1z.png" />
                             <Card.Body>
                                 <Card.Title>Producer</Card.Title>
                                 <Card.Text>
-                                {user.sub}
+                                <Accordion name={"Example"}/>
                                 </Card.Text>
                                 <Button variant="primary" onClick={handleProducerClick}>Register As Producer</Button>
                             </Card.Body>
                         </Card>
                     </Col>
-                    <Col  xl={1}>
-                       
+                    <Col  xl={2} md={2}>
+                        
                     </Col>
                    
+                    
+                </Row>
+                <Row style={{height:"100rem",top:"50px"}}>
                     
                 </Row>
             </Container>

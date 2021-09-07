@@ -74,3 +74,30 @@
         console.log("Conditional worked. Querying user with the following id",user.sub)
     } */
     //JSON.stringify(user,null,2)
+
+     /*axiosinstance.post("/api/user/post",{googleId:user.sub,name:user.name,userType:"jjj"}).then(resultPost=>{
+            console.log("Succefully posted user data. This is what was returned: ",resultPost)
+          }).catch(errPost=>{
+            console.log("There was an error with the posting of a new user: ",errPost)
+          }) */
+    
+        //You most create and axios instance with a base url when using react and axios together
+    /*const axios = require("axios")
+    const axiosinstance = axios.create({
+        baseURL: 'http://localhost:3000'
+    }); */
+
+
+//API folder
+
+    // Export an object with a "search" method that searches the Giphy API for the passed query
+/*export default {
+  getUserInfo: function(query) {
+    return axios.get(query)
+  },
+  postUserInfo: function(query,data){
+      console.log("This is the data for post user info: ",data)
+      return axios.post(query,data)
+    
+  }
+}; */

@@ -12,6 +12,10 @@ module.exports = function(sequelize, DataTypes) {
           type: DataTypes.STRING,
           defaultValue: "dafsdfasd"
           
+      },
+      profileCompleted : {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
       }
     });
     return User;

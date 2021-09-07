@@ -17,6 +17,8 @@ import NavBarExperiment from "./MyComponents/LandingPage/NavbarExperiment1"
 import DeveloperContext from "./utils/DeveloperContext"
 import NavBarTwo from "./MyComponents/LandingPage/NavBarExperiment2"
 import UserSelectionExperiment from "./MyComponents/LandingPage/UserSelectionExperiment1"
+import LPEA from "./MyComponents/LandingPage/LandingPageExperimentAbsolute"
+import LPED2 from "./MyComponents/LandingPage/LandingPageDiv2"
 
 
 function App() {  
@@ -33,7 +35,9 @@ function App() {
                 <DeveloperContext.Provider value={developerState}>
                   <NavBarExperiment/>
                   <NavBarTwo/>
-                  <LandingPageExperiment/>
+                  {/*<LandingPageExperiment/>*/}
+                  <LPEA/>
+                  <LPED2/>
                   <UserSelectionExperiment/>
                 
                 </DeveloperContext.Provider>

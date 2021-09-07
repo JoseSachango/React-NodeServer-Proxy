@@ -26,8 +26,8 @@ module.exports = {
       return axios.get(query)
     },
     postUserInfo: function(query,data){
-        return console.log("This is the data for post user info: ",data)
-        //return axiosinstance.post(query,data)
+        console.log("This is the data for post user info: ",data)
+        return axiosinstance.post(query,data)
       
     }
   };
