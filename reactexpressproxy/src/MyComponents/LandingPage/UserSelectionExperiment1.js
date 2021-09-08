@@ -2,6 +2,7 @@ import React, { Component, useState,useEffect,useContext  } from "react";
 import Navbar from "react-bootstrap/Navbar"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
+import {Link, useLocation} from "react-router-dom"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import Image from "react-bootstrap/Image"
@@ -21,13 +22,13 @@ import Accordion from "./AccordianExperiment"
 
 
 const UserSelectionExperiment = () => {
-
+    const location = useLocation()
     const {loginWithRedirect,logout,isAuthenticated,user} = useAuth0(); //React hook for functional componenets
     const {name,age,height} = useContext(DeveloperContext)
     console.log("This is the user informaiton", JSON.stringify(user,null,2))
 
     const handleProducerClick = () =>{
-        API.postUserInfo("/api/user/post",{googleId:user.sub,name:user.name,userType:"jjj",profileCompleted:false}).then(resultPost=>{
+        API.postUserInfo("/api/user/post",{googleId:user.sub,name:user.name,userType:"jjj",profileCompleted:"false"}).then(resultPost=>{
             console.log("Succefully posted user data. This is what was returned: ",resultPost)
           }).catch(errPost=>{
             console.log("There was an error with the posting of a new user: ",errPost)
@@ -70,7 +71,10 @@ const UserSelectionExperiment = () => {
                                 <Card.Text>
                                 <Accordion name={"Example"}/>
                                 </Card.Text>
-                                <Button variant="primary" onClick={handleProducerClick}>Register As Producer</Button>
+                                <Button variant="primary" onClick={handleProducerClick} as={Link} to="/producer">Register As Producer</Button>
+                                <Link to="/producer" role="button" className="btn btn-link">
+                                    Producer
+                                </Link>
                             </Card.Body>
                         </Card>
                     </Col>

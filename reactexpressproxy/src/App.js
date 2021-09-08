@@ -19,6 +19,7 @@ import NavBarTwo from "./MyComponents/LandingPage/NavBarExperiment2"
 import UserSelectionExperiment from "./MyComponents/LandingPage/UserSelectionExperiment1"
 import LPEA from "./MyComponents/LandingPage/LandingPageExperimentAbsolute"
 import LPED2 from "./MyComponents/LandingPage/LandingPageDiv2"
+import Form from "./MyComponents/LandingPage/UserFormExperiment"
 
 
 function App() {  
@@ -41,6 +42,9 @@ function App() {
                   <UserSelectionExperiment/>
                 
                 </DeveloperContext.Provider>
+        </Route>
+        <Route exact path={["/producer"]}>
+            <Form/>
         </Route>
       </>
     </Router>

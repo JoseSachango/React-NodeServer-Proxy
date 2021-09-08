@@ -23,7 +23,7 @@ const axiosinstance = axios.create({
 module.exports = {
 
     getUserInfo: function(query) {
-      return axios.get(query)
+      return axiosinstance.get(query)
     },
     postUserInfo: function(query,data){
         console.log("This is the data for post user info: ",data)

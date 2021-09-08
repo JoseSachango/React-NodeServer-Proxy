@@ -40,10 +40,11 @@ module.exports = function(app) {
       db.User.create({
         googleId: req.body.googleId,
         name: req.body.name,
-        userType: req.body.userType
+        userType: req.body.userType,
+        profileCompleted: req.body.profileCompleted
       }).then(function(dbUser) {
         // We have access to the new todo as an argument inside of the callback function
-        res.json(dbUser);
+          res.json(dbUser);
       }).catch(err=>{
           console.log("There was an error on the backend trying to post user information: ",err)
           //res.status(404).send(err)
