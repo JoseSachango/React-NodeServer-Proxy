@@ -72,9 +72,7 @@ const UserSelectionExperiment = () => {
                                 <Accordion name={"Example"}/>
                                 </Card.Text>
                                 <Button variant="primary" onClick={handleProducerClick} as={Link} to="/producer">Register As Producer</Button>
-                                <Link to="/producer" role="button" className="btn btn-link">
-                                    Producer
-                                </Link>
+                               
                             </Card.Body>
                         </Card>
                     </Col>
